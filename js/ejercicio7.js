@@ -6,3 +6,6 @@
 
 // Escribe tu código aquí debajo:
 
+var edad_usuario = prompt ("dime tu edad machang@ 😋");
+
+if (edad_usuario>18) alert( "Ahora ya eres legalmente responsable😱🤪");

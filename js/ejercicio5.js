@@ -5,3 +5,7 @@
 
 // Escribe tu código aquí debajo:
 
+var num1 = 5;
+var num2 = 5;
+
+if (num1 === num2) alert ("son iguales 🤘🏼");

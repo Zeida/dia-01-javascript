@@ -5,3 +5,6 @@
 
 // Escribe tu código aquí debajo:
 
+var edad = prompt("Dime tu edad machang@ 👻");
+
+

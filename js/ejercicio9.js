@@ -8,3 +8,12 @@
 
 // Escribe tu código aquí debajo:
 
+
+var palabra = prompt ('Adivina que estoy pensando😏');
+
+if (palabra === 'Javascript') {
+    alert('Correctoooo 🟢');
+} else {
+    alert('Fallaste, te toca intentar de nuevo 💪🏼');
+    palabra = prompt ('Adivina que estoy pensando😏');
+}

@@ -4,3 +4,5 @@
 // 2. No necesitas mostrar nada más; el sistema validará si `respuesta` fue creada correctamente y es un valor booleano.
 
 // Escribe tu código aquí debajo:
+
+var respuesta = confirm ('¿Te gusta el chocolate🍫?');
