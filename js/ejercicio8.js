@@ -9,4 +9,8 @@
 
 var respuestaUsuario = prompt("Cuéntame... ¿si... o... no...?")
 
-if (respuestaUsuario != 'si' && respuestaUsuario != 'no') alert('Era tan sencillo... solo si o no...');
+if (respuestaUsuario != 'si' && respuestaUsuario != 'no'){
+
+ alert('Era tan sencillo... solo si o no...');
+ 
+}
