@@ -9,4 +9,12 @@
 // 3. Por ejemplo: saludoIdioma("en") debe retornar "Hello"
 
 // Escribe tu código aquí debajo:
+function saludoIdioma(i18n){
+    switch(i18n){
+        case "es": return "Hola";
+        case "en": return "Hello";
+        case "fr": return "Bonjour";
+        default: return "Idioma no soportado";
+    }
 
+}

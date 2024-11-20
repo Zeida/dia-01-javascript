@@ -8,3 +8,15 @@
 // 3. Por ejemplo: clasificarEdad(15) debe retornar "Adolescente"
 
 // Escribe tu código aquí debajo:
+
+function clasificarEdad(edad) {
+    if (edad < 12) {
+        return "Niño";
+    } else if (edad >= 13 && edad <= 17) {
+        return "Adolescente";
+    } else if (edad >= 18) {
+        return "Adulto";
+    } else {
+        return "Edad no válida";
+    }
+}

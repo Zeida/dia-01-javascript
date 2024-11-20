@@ -6,3 +6,7 @@
 // 4. No uses alert() en este ejercicio, solo return.
 
 // Escribe tu código aquí debajo:
+
+function saludar (nombre){
+    return "¡Hola, " + nombre + "!";
+}

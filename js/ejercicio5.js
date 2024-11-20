@@ -8,3 +8,8 @@
 
 // Escribe tu código aquí debajo:
 
+function calcularDescuento(precio, descuento) {
+    let descuentoAplicado = (precio * descuento) / 100; 
+    let precioFinal = precio - descuentoAplicado; 
+    return precioFinal;
+}

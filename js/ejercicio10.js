@@ -10,3 +10,13 @@
 
 // Escribe tu código aquí debajo:
 
+function tamañoPalabra(texto) {
+
+    if (texto.length < 5) {
+        return "Corta";
+    } else if (texto.length  >= 5 || texto.length < 10) {
+        return "Media";
+    } else {
+        return "Larga"
+    }
+}
