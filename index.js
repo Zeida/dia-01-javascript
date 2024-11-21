@@ -1,12 +1,12 @@
 const exercises = [
     { 
         id: 1, 
-        title: "Función Saludar", 
-        hint: "¿Recordaste poner los paréntesis y las comillas? La concatenación en JavaScript se hace con el signo +", 
+        title: "Crear Array", 
+        hint: "Recuerda que los arrays se crean con corchetes [] y los elementos se separan con comas", 
         check: () => {
             try {
-                return typeof saludar === 'function' && 
-                       saludar('test') === '¡Hola, test!';
+                return typeof crearArrayNumeros === 'function' && 
+                       JSON.stringify(crearArrayNumeros()) === JSON.stringify([1,2,3,4,5]);
             } catch(e) {
                 return false;
             }
@@ -14,13 +14,12 @@ const exercises = [
     },
     { 
         id: 2, 
-        title: "Función Cuadrado", 
-        hint: "Para multiplicar un número por sí mismo puedes usar numero * numero, o también numero ** 2", 
+        title: "Acceder a Array", 
+        hint: "Los arrays empiezan en la posición 0. Para el último elemento, piensa cuántos elementos tiene el array", 
         check: () => {
             try {
-                return typeof cuadrado === 'function' && 
-                       cuadrado(4) === 16 && 
-                       cuadrado(2) === 4;
+                return typeof obtenerPrimeroYUltimo === 'function' && 
+                       JSON.stringify(obtenerPrimeroYUltimo([1,2,3])) === JSON.stringify([1,3]);
             } catch(e) {
                 return false;
             }
@@ -28,13 +27,13 @@ const exercises = [
     },
     { 
         id: 3, 
-        title: "Función Es Par", 
-        hint: "El operador % devuelve el residuo. Si un número dividido entre 2 tiene residuo 0, es par", 
+        title: "Sumar Array", 
+        hint: "Usa un bucle for normal y una variable para ir sumando cada número del array", 
         check: () => {
             try {
-                return typeof esPar === 'function' && 
-                       esPar(2) === true && 
-                       esPar(3) === false;
+                return typeof sumarArray === 'function' && 
+                       sumarArray([1,2,3]) === 6 && 
+                       sumarArray([10,20]) === 30;
             } catch(e) {
                 return false;
             }
@@ -42,18 +41,14 @@ const exercises = [
     },
     { 
         id: 4, 
-        title: "Función Día de la Semana", 
-        hint: "¿Pusiste break después de cada case? ¿Incluiste el caso default para números inválidos?", 
+        title: "Crear Objeto", 
+        hint: "Los objetos usan llaves {} y pares de clave: valor separados por comas", 
         check: () => {
             try {
-                return typeof diaDeLaSemana === 'function' && 
-                       diaDeLaSemana(1) === 'lunes' && 
-                       diaDeLaSemana(2) === 'martes' && 
-                       diaDeLaSemana(3) === 'miércoles' && 
-                       diaDeLaSemana(4) === 'jueves' && 
-                       diaDeLaSemana(5) === 'viernes' && 
-                       diaDeLaSemana(6) === 'sábado' && 
-                       diaDeLaSemana(7) === 'domingo';
+                const persona = crearPersona("Juan", 25);
+                return typeof crearPersona === 'function' && 
+                       persona.nombre === "Juan" && 
+                       persona.edad === 25;
             } catch(e) {
                 return false;
             }
@@ -61,12 +56,14 @@ const exercises = [
     },
     { 
         id: 5, 
-        title: "Función Calcular Descuento", 
-        hint: "Para calcular el descuento: primero calcula el porcentaje (descuento/100) y luego réstalo del precio", 
+        title: "Modificar Objeto", 
+        hint: "Para cambiar un valor en un objeto, usa la notación punto: objeto.propiedad = nuevoValor", 
         check: () => {
             try {
-                return typeof calcularDescuento === 'function' && 
-                       calcularDescuento(100, 20) === 80;
+                const obj = {nombre: "Juan"};
+                const modificado = cambiarNombre(obj, "Pedro");
+                return typeof cambiarNombre === 'function' && 
+                       modificado.nombre === "Pedro";
             } catch(e) {
                 return false;
             }
@@ -74,14 +71,12 @@ const exercises = [
     },
     { 
         id: 6, 
-        title: "Función Clasificar Edad", 
-        hint: "Recuerda que los rangos de edad no se solapan. Usa >= y < para definir los rangos correctamente", 
+        title: "Contar Elementos Array", 
+        hint: "Recorre el array con un bucle for y usa una variable contador para los elementos que cumplan la condición", 
         check: () => {
             try {
-                return typeof clasificarEdad === 'function' && 
-                       clasificarEdad(10) === 'Niño' && 
-                       clasificarEdad(15) === 'Adolescente' && 
-                       clasificarEdad(20) === 'Adulto';
+                return typeof contarMayoresA5 === 'function' && 
+                       contarMayoresA5([2,5,8,1,9]) === 2;
             } catch(e) {
                 return false;
             }
@@ -89,15 +84,14 @@ const exercises = [
     },
     { 
         id: 7, 
-        title: "Función Operaciones", 
-        hint: "En el switch, cada case debe ser el operador como string: case '+', case '*', etc.", 
+        title: "Copiar Objeto", 
+        hint: "Crea un nuevo objeto y copia cada propiedad una por una", 
         check: () => {
             try {
-                return typeof operacion === 'function' && 
-                       operacion(4, 2, '+') === 6 && 
-                       operacion(4, 2, '*') === 8 &&
-                       operacion(4, 2, '-') === 2 &&
-                       operacion(4, 2, '/') === 2;
+                const original = {a: 1, b: 2};
+                const copia = copiarObjeto(original);
+                return typeof copiarObjeto === 'function' && 
+                       copia.a === 1 && copia.b === 2 && original !== copia;
             } catch(e) {
                 return false;
             }
@@ -105,13 +99,12 @@ const exercises = [
     },
     { 
         id: 8, 
-        title: "Función Nota a Texto", 
-        hint: "Puedes agrupar varios casos usando case 7: case 8: para notas que devuelvan el mismo texto", 
+        title: "Array de Números", 
+        hint: "Usa un bucle for para crear un nuevo array con los números que necesites", 
         check: () => {
             try {
-                return typeof notaTexto === 'function' && 
-                       notaTexto(10) === 'Sobresaliente' &&
-                       notaTexto(7) === 'Notable';
+                return typeof crearArrayHasta === 'function' && 
+                       JSON.stringify(crearArrayHasta(3)) === JSON.stringify([1,2,3]);
             } catch(e) {
                 return false;
             }
@@ -119,13 +112,12 @@ const exercises = [
     },
     { 
         id: 9, 
-        title: "Función Saludo por Idioma", 
-        hint: "Los strings en JavaScript son sensibles a mayúsculas. 'es' no es lo mismo que 'ES'", 
+        title: "Objeto con Arrays", 
+        hint: "Un objeto puede tener arrays como valores. Accede a ellos con objeto.propiedad[indice]", 
         check: () => {
             try {
-                return typeof saludoIdioma === 'function' && 
-                       saludoIdioma('es') === 'Hola' &&
-                       saludoIdioma('xyz') === 'Idioma no soportado';
+                return typeof crearAlumno === 'function' && 
+                       JSON.stringify(crearAlumno("Juan", [8,9,7]).notas) === JSON.stringify([8,9,7]);
             } catch(e) {
                 return false;
             }
@@ -133,13 +125,13 @@ const exercises = [
     },
     { 
         id: 10, 
-        title: "Función Tamaño Palabra", 
-        hint: "texto.length te da la longitud. Comienza por el caso más pequeño o más grande primero", 
+        title: "Array de Objetos Simple", 
+        hint: "Crea un array donde cada elemento sea un objeto. Usa un bucle for para procesarlos", 
         check: () => {
             try {
-                return typeof tamañoPalabra === 'function' && 
-                       tamañoPalabra('hi') === 'Corta' &&
-                       tamañoPalabra('JavaScript') === 'Media';
+                const productos = [{precio: 10}, {precio: 20}];
+                return typeof sumarPrecios === 'function' && 
+                       sumarPrecios(productos) === 30;
             } catch(e) {
                 return false;
             }
@@ -249,23 +241,25 @@ function validateExercise(exercise, checkmark) {
 
 function createInputsForExercise(exercise) {
     const inputConfigs = {
-        1: [{ name: 'nombre', type: 'text', placeholder: 'Introduce un nombre' }],
-        2: [{ name: 'numero', type: 'number', placeholder: 'Introduce un número' }],
-        3: [{ name: 'numero', type: 'number', placeholder: 'Introduce un número' }],
-        4: [{ name: 'dia', type: 'number', placeholder: 'Número del 1 al 7' }],
+        1: [], // No necesita inputs, solo crea el array
+        2: [{ name: 'array', type: 'text', placeholder: 'Array (ej: 1,2,3,4)' }],
+        3: [{ name: 'array', type: 'text', placeholder: 'Array de números (ej: 1,2,3)' }],
+        4: [
+            { name: 'nombre', type: 'text', placeholder: 'Nombre' },
+            { name: 'edad', type: 'number', placeholder: 'Edad' }
+        ],
         5: [
-            { name: 'precio', type: 'number', placeholder: 'Precio' },
-            { name: 'descuento', type: 'number', placeholder: 'Descuento %' }
+            { name: 'objeto', type: 'text', placeholder: 'Objeto actual (ej: Juan)' },
+            { name: 'nuevoNombre', type: 'text', placeholder: 'Nuevo nombre' }
         ],
-        6: [{ name: 'edad', type: 'number', placeholder: 'Edad' }],
-        7: [
-            { name: 'num1', type: 'number', placeholder: 'Primer número' },
-            { name: 'num2', type: 'number', placeholder: 'Segundo número' },
-            { name: 'operador', type: 'text', placeholder: '+, -, *, /' }
+        6: [{ name: 'array', type: 'text', placeholder: 'Array de números (ej: 2,5,8,1,9)' }],
+        7: [{ name: 'objeto', type: 'text', placeholder: 'Objeto (ej: {"a":1,"b":2})' }],
+        8: [{ name: 'numero', type: 'number', placeholder: 'Número límite' }],
+        9: [
+            { name: 'nombre', type: 'text', placeholder: 'Nombre del alumno' },
+            { name: 'notas', type: 'text', placeholder: 'Notas (ej: 8,9,7)' }
         ],
-        8: [{ name: 'nota', type: 'number', placeholder: 'Nota (0-10)' }],
-        9: [{ name: 'idioma', type: 'text', placeholder: 'es, en, fr' }],
-        10: [{ name: 'texto', type: 'text', placeholder: 'Escribe un texto' }]
+        10: [{ name: 'productos', type: 'text', placeholder: 'Array de precios (ej: 10,20,30)' }]
     };
 
     const configs = inputConfigs[exercise.id] || [];
@@ -286,19 +280,25 @@ function createInputsForExercise(exercise) {
 function runExerciseTest(exercise, inputElements) {
     const params = Array.from(inputElements)
         .map(div => div.firstChild)
-        .map(input => input.type === 'number' ? Number(input.value) : input.value);
+        .map(input => {
+            if (input.type === 'number') return Number(input.value);
+            // Convertir strings de arrays y objetos
+            if (input.value.includes(',')) return input.value.split(',').map(Number);
+            if (input.value.startsWith('{')) return JSON.parse(input.value);
+            return input.value;
+        });
     
     switch (exercise.id) {
-        case 1: return saludar(...params);
-        case 2: return cuadrado(...params);
-        case 3: return esPar(...params);
-        case 4: return diaDeLaSemana(...params);
-        case 5: return calcularDescuento(...params);
-        case 6: return clasificarEdad(...params);
-        case 7: return operacion(...params);
-        case 8: return notaTexto(...params);
-        case 9: return saludoIdioma(...params);
-        case 10: return tamañoPalabra(...params);
+        case 1: return crearArrayNumeros();
+        case 2: return obtenerPrimeroYUltimo(...params);
+        case 3: return sumarArray(...params);
+        case 4: return crearPersona(...params);
+        case 5: return cambiarNombre(...params);
+        case 6: return contarMayoresA5(...params);
+        case 7: return copiarObjeto(...params);
+        case 8: return crearArrayHasta(...params);
+        case 9: return crearAlumno(...params);
+        case 10: return sumarPrecios(params[0].map(precio => ({precio})));
         default: throw new Error('Ejercicio no encontrado');
     }
 }

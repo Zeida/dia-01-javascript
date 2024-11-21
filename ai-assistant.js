@@ -1,48 +1,109 @@
 class AIAssistant {
     constructor() {
+
+        if (!localStorage.getItem('openai_api_key')){
+            var apikey= prompt('¿Puedes introducir la clave de openai que te dio yunior?');
+            localStorage.setItem('openai_api_key', apikey)
+        }
         this.API_KEY = localStorage.getItem('openai_api_key');
         this.ENDPOINT = 'https://api.openai.com/v1/chat/completions';
         this.context = this.initializeContext();
         this.setupUI();
+        this.setupCodeWatcher();
+    }
+
+    setupCodeWatcher() {
+        // Observar cambios en el código cada 5 segundos
+        setInterval(async () => {
+            await this.updateContext();
+        }, 5000);
+    }
+
+    async updateContext() {
+        const exerciseFiles = {};
+        const fetchPromises = [];
+
+        for (let i = 1; i <= 10; i++) {
+            // Usamos la ruta actual de los ejercicios
+            const fetchPromise = fetch(`./js/ejercicio${i}.js`)
+                .then(response => response.text())
+                .then(code => {
+                    exerciseFiles[`ejercicio${i}`] = code;
+                })
+                .catch(error => console.error(`Error al cargar el ejercicio ${i}:`, error));
+
+            fetchPromises.push(fetchPromise);
+        }
+
+        try {
+            await Promise.all(fetchPromises);
+            this.context.currentCode = exerciseFiles;
+        } catch (error) {
+            console.error('Error actualizando el contexto:', error);
+        }
+    }
+
+    getFunctionNameForExercise(exerciseId) {
+        const functionNames = {
+            1: 'crearArrayNumeros',
+            2: 'obtenerPrimeroYUltimo',
+            3: 'sumarArray',
+            4: 'crearPersona',
+            5: 'cambiarNombre',
+            6: 'contarMayoresA5',
+            7: 'copiarObjeto',
+            8: 'crearArrayHasta',
+            9: 'crearAlumno',
+            10: 'sumarPrecios'
+        };
+        return functionNames[exerciseId];
     }
 
     initializeContext() {
         // Recopilamos el código de todos los ejercicios
         const exerciseFiles = {};
+        const fetchPromises = []; // Array para almacenar las promesas de fetch
+
         for (let i = 1; i <= 10; i++) {
-            const scriptElement = document.querySelector(`script[src*="ejercicio${i}.js"]`);
+            const scriptElement = document.querySelector(`script[src*="/originales_no_abrir/ejercicio${i}.js"]`);
             if (scriptElement) {
-                exerciseFiles[`ejercicio${i}`] = scriptElement.textContent;
+                // Usamos fetch para cargar el contenido del archivo y obtener los comentarios
+                const fetchPromise = fetch(scriptElement.src)
+                    .then(response => response.text())
+                    .then(code => {
+                        exerciseFiles[`ejercicio${i}`] = code;
+                    })
+                    .catch(error => console.error(`Error al cargar el ejercicio ${i}:`, error));
+
+                fetchPromises.push(fetchPromise); // Agregar la promesa al array
             }
         }
 
+        // Esperamos a que todas las promesas de fetch terminen
+        Promise.all(fetchPromises).then(() => {
+            this.context.exercises = exerciseFiles;
+        });
+
         return {
-            exercises: exerciseFiles,
             systemPrompt: `
                 Eres un asistente especializado en ayudar a estudiantes que están aprendiendo JavaScript por primera vez.
                 Contexto actual:
-                - Los estudiantes están realizando ejercicios básicos de JavaScript
-                - Están aprendiendo sobre funciones y switch
-                - Es su segunda clase de JavaScript
+                - Los estudiantes están en su tercera clase de JavaScript
+                - Están aprendiendo sobre arrays y objetos básicos
+                - Ya conocen funciones y bucles for
+                - NO han visto: forEach, map, filter, Object.keys, métodos de array avanzados
                 
                 Reglas importantes:
-                1. NUNCA des la solución completa a los ejercicios
-                2. Guía al estudiante con preguntas y pistas
-                3. Si detectas errores básicos de sintaxis, explícalos de manera didáctica
-                4. Usa analogías y ejemplos simples
-                5. Si el estudiante parece frustrado, ofrece ánimo y divide el problema en pasos más pequeños
-                6. Usa Markdown para formatear tus respuestas:
-                   - Código en bloques con \`\`\`javascript
-                   - Listas con - o números
-                   - **Negrita** para énfasis
-                   - > Para citas o notas importantes
-                7. El estudiante tiene que resolver los ejercicios por su cuenta, no debes dar la solución completa ni tampoco paso a paso como para que puedan resolverlo copiando tus respuestas.
-                
-                Ejercicios actuales:
-                ${JSON.stringify(exercises, null, 2)}
-                
-                Código actual del estudiante:
-                ${JSON.stringify(exerciseFiles, null, 2)}
+                1. NUNCA des la solución completa
+                2. Guía usando solo bucles for y while y acceso básico a arrays/objetos
+                3. Si ves indexOf, forEach u otros métodos avanzados, sugiere usar for
+                4. Recuerda que están aprendiendo sobre referencias vs valores
+                5. Usa analogías simples:
+                   - Arrays como lista de la compra numerada
+                   - Objetos como ficha de datos de una persona
+                6. Guía al estudiante con preguntas y pistas
+                7. Si detectas errores básicos de sintaxis, explícalos de manera didáctica
+                8. Usa analogías y ejemplos simples
             `
         };
     }
@@ -163,6 +224,19 @@ class AIAssistant {
     }
 
     async getAIResponse(question) {
+        // Actualizar el contexto antes de enviar la pregunta
+        this.updateContext();
+
+        const systemPromptWithContext = `
+            ${this.context.systemPrompt}
+            
+            Enunciados de los ejercicios:
+            ${JSON.stringify(this.context.exercises, null, 2)}
+            
+            Código actual del estudiante:
+            ${JSON.stringify(this.context.currentCode, null, 2)}
+        `;
+
         const response = await fetch(this.ENDPOINT, {
             method: 'POST',
             headers: {
@@ -172,7 +246,10 @@ class AIAssistant {
             body: JSON.stringify({
                 model: "gpt-4o-mini",
                 messages: [
-                    { role: "system", content: this.context.systemPrompt },
+                    { 
+                        role: "system", 
+                        content: systemPromptWithContext
+                    },
                     { role: "user", content: question }
                 ],
                 temperature: 0.7,
