@@ -11,3 +11,9 @@
 
 // Escribe tu código aquí debajo:
 
+function crearAlumno(nombre, notas) {
+    var listadoAlumnos = {};
+    listadoAlumnos.nombre = nombre;
+    listadoAlumnos.notas = notas;
+    return listadoAlumnos;
+}

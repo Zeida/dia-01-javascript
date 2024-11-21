@@ -14,3 +14,10 @@
 
 // Escribe tu código aquí debajo:
 
+function copiarObjeto(original) {
+    var copia = {};
+    copia = { ...original };
+
+    return copia;
+
+}

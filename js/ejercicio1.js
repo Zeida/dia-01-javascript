@@ -8,3 +8,10 @@
 // Ejemplo: crearArrayNumeros() debe retornar [1,2,3,4,5]
 
 // Escribe tu código aquí debajo:
+
+function crearArrayNumeros() {
+    var oneToFive = [1, 2, 3, 4, 5];
+
+    return oneToFive;
+
+}

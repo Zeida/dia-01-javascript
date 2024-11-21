@@ -10,4 +10,8 @@
 // Ejemplo: obtenerPrimeroYUltimo([1,2,3]) debe retornar [1,3]
 
 // Escribe tu código aquí debajo:
+function obtenerPrimeroYUltimo (listado){
+    var primeroUltimo=[listado[0], listado[listado.length-1]];
+    return primeroUltimo;
 
+}

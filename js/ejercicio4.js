@@ -11,3 +11,7 @@
 
 // Escribe tu código aquí debajo:
 
+function crearPersona(nombre,edad){
+    var persona = {nombre, edad};
+    return persona; 
+}

@@ -9,4 +9,7 @@
 // Ejemplo: cambiarNombre({nombre: "Juan"}, "Pedro") debe retornar {nombre: "Pedro"}
 
 // Escribe tu código aquí debajo:
-
+function cambiarNombre(anteriorNombre, nuevoNombre){
+    anteriorNombre.nombre=nuevoNombre;
+    return anteriorNombre;
+}

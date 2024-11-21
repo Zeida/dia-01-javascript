@@ -9,3 +9,11 @@
 
 // Escribe tu código aquí debajo:
 
+function crearArrayHasta(hasta) {
+    var nuevoArray = [];
+    for (let index = 1; index <= hasta; index++) {
+        nuevoArray.push(index);
+
+    }
+    return nuevoArray;
+}

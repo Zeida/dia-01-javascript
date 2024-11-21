@@ -8,3 +8,14 @@
 // Ejemplo: contarMayoresA5([2,5,8,1,9]) debe retornar 2 (porque 8 y 9 son mayores que 5)
 
 // Escribe tu código aquí debajo:
+
+function contarMayoresA5(numeros) {
+    var contador = 0;
+    for (let index = 0; index < numeros.length; index++) {
+        if (numeros[index] > 5) {
+            contador++;
+        }
+
+    }
+    return contador;
+}

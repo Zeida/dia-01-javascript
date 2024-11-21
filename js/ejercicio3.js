@@ -8,4 +8,11 @@
 // Ejemplo: sumarArray([1,2,3]) debe retornar 6
 
 // Escribe tu código aquí debajo:
+function sumarArray(numeros) {
+    var suma = 0 ;
+    for (let index = 0; index < numeros.length; index++) {
+        suma += numeros[index];
 
+    }
+    return suma;
+}

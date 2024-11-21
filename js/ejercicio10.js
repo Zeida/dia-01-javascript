@@ -10,3 +10,12 @@
 
 // Escribe tu código aquí debajo:
 
+function sumarPrecios(productos) {
+    var precios = 0;
+    for (let index = 0; index < productos.length; index++) {
+        precios += productos[index].precio;
+
+    }
+    return precios;
+
+}
