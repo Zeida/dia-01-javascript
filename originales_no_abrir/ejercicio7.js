@@ -1,16 +1,21 @@
-// Ejercicio 7: Copiar Objeto
-// Instrucciones:
-// 1. Crea una función llamada `copiarObjeto` que reciba un objeto como parámetro
-// 2. Crea un nuevo objeto vacío
-// 3. Copia todas las propiedades del objeto original al nuevo objeto
-// 4. IMPORTANTE: debe ser una copia real, no una referencia
-// 5. Retorna el nuevo objeto
+// Ejercicio 7: Filtrar mayores
+// 
+// Descripción:
+// Crea una función que reciba un array de números y un límite, y devuelva
+// un nuevo array solo con los números mayores al límite.
 //
-// Ejemplo: 
-// const original = {a: 1, b: 2};
-// const copia = copiarObjeto(original);
-// original.a = 999;
-// console.log(copia.a) // Debe mostrar 1, no 999
+// Instrucciones:
+// 1. Crea una función llamada filtrarMayores que reciba dos parámetros:
+//    - Un array de números
+//    - Un número límite
+// 2. Crea un array vacío para los números filtrados
+// 3. Recorre el array original con un bucle for
+// 4. Si el número actual es mayor al límite, agrégalo al nuevo array
+// 5. Retorna el array con los números filtrados
+//
+// Ejemplo:
+// filtrarMayores([1,5,10,15], 7) // debe retornar [10,15]
+//
+// Pista: Compara cada número con el límite usando el operador >
 
-// Escribe tu código aquí debajo:
-
+// Escribe tu código aquí:

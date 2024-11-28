@@ -1,11 +1,19 @@
-// Ejercicio 3: Sumar Array
-// Instrucciones:
-// 1. Crea una función llamada `sumarArray` que reciba un array de números
-// 2. Usa un bucle for para recorrer el array
-// 3. Suma todos los números del array
-// 4. Retorna el total
+// Ejercicio 3: Números impares en rango
+// 
+// Descripción:
+// Crea una función que devuelva un array con todos los números impares 
+// que hay entre dos números dados (inclusive).
 //
-// Ejemplo: sumarArray([1,2,3]) debe retornar 6
+// Instrucciones:
+// 1. Crea una función llamada numerosImpares que reciba dos parámetros: inicio y fin
+// 2. Crea un array vacío para almacenar los números impares
+// 3. Usa un bucle for desde inicio hasta fin (inclusive)
+// 4. Si un número es impar (numero % 2 !== 0), agrégalo al array
+// 5. Retorna el array con todos los números impares encontrados
+//
+// Ejemplo:
+// numerosImpares(1, 5) // debe retornar [1,3,5]
+//
+// Pista: Usa array.push() para agregar elementos al array
 
-// Escribe tu código aquí debajo:
-
+// Escribe tu código aquí:
