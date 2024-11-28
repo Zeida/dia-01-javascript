@@ -17,3 +17,13 @@
 // Pista: Necesitarás una variable para ir acumulando la suma
 
 // Escribe tu código aquí:
+
+function sumarPares(){
+    var acumulador=0;
+    for(var i=2; i<=100; i++){
+        if(i % 2 === 0){
+            acumulador+=i;
+        }
+    }
+    return acumulador;
+}

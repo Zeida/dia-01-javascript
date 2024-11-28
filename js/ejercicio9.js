@@ -19,3 +19,13 @@
 // Pista: palabra.includes(letra) te dice si la palabra contiene la letra
 
 // Escribe tu código aquí:
+
+function buscarPalabras(palabras, letra){
+    var encontradas = [];
+    for(var i=0; i<palabras.length;i++){
+        if(palabras[i].includes(letra)){
+            encontradas.push(palabras[i]);
+        }
+    }
+    return encontradas;
+}

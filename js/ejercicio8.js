@@ -14,3 +14,11 @@
 // sumarNumeros([1,2,3,4,5]) // debe retornar 15
 //
 // Pista: Usa array[i] para acceder a cada número dentro del bucle for
+
+function sumarNumeros(numeros){
+    var suma=0;
+    for(var i=0; i<numeros.length;i++){
+        suma+=numeros[i];
+    }
+    return suma;
+}

@@ -17,3 +17,14 @@
 // Pista: Puedes usar string.toLowerCase() para convertir a minúsculas y comparar más fácilmente
 
 // Escribe tu código aquí:
+
+function contarVocales(palabra){
+    palabra=palabra.toLowerCase();
+    var contador=0;
+    for(var i=0; i<=palabra.length; i++){
+        if( palabra.charAt(i)==='a' || palabra.charAt(i)==='e' || palabra.charAt(i)==='i' || palabra.charAt(i)==='o' || palabra.charAt(i)==='u'){
+            contador++;
+        }
+    }
+    return contador;
+}

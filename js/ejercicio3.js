@@ -17,3 +17,14 @@
 // Pista: Usa array.push() para agregar elementos al array
 
 // Escribe tu código aquí:
+
+function numerosImpares(inicio, fin){
+    var arrayNumeros=[];
+    for(var i=inicio; i<=fin; i++){
+        if(i%2!==0){
+            arrayNumeros.push(i);
+        }
+    }
+    return arrayNumeros
+
+}

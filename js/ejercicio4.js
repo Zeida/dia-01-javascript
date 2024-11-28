@@ -18,3 +18,11 @@
 // Pista: Cada elemento del array será el número base multiplicado por la posición actual del bucle
 
 // Escribe tu código aquí:
+
+function tablaMultiplicar(numero){
+    var resultados=[];
+    for(var i=1;i<=10;i++){
+        resultados.push(numero*i);
+    }
+    return resultados;
+}

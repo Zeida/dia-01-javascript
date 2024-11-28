@@ -16,3 +16,13 @@
 // Pista: Puedes usar i += 2 en el bucle for para ir de 2 en 2
 
 // Escribe tu código aquí:
+
+function crearArrayPares(){
+    var pares = [];
+    for (var i=2; i<=20;i++){
+        if(i%2===0){
+            pares.push(i);
+        }
+    }
+    return pares;
+}

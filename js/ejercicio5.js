@@ -17,3 +17,11 @@
 // debe retornar ['Fruta encontrada: manzana', 'Fruta encontrada: pera', 'Fruta encontrada: uva']
 //
 // Pista: Usa array[i] para acceder a cada fruta y array.push() para agregar al nuevo array
+
+function generarFrases (frutas){
+    var frases = [];
+    for(var i=0;i<frutas.length;i++){
+        frases.push(`Fruta encontrada: ${frutas[i]}`);
+    }
+    return frases;
+}

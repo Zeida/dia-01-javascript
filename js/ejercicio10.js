@@ -22,3 +22,7 @@
 //
 // Pista: Un callback es simplemente una función que pasamos como argumento
 //        y que será ejecutada dentro de nuestra función principal
+
+function ejecutarOperacion(numero1, numero2, operacion){
+    return operacion(numero1, numero2);
+}

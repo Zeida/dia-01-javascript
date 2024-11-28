@@ -19,3 +19,13 @@
 // Pista: Compara cada número con el límite usando el operador >
 
 // Escribe tu código aquí:
+
+function filtrarMayores(numeros, limite){
+    var filtrados=[];
+    for(var i=0;i<numeros.length; i++){
+        if(numeros[i]>limite){
+            filtrados.push(numeros[i]);
+        }
+    }
+    return filtrados;
+}
