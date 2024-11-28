@@ -102,8 +102,8 @@ const exercises = [
         hint: "Declara una variable suma = 0 antes del forEach y súmale cada número dentro del callback", 
         check: () => {
             try {
-                return typeof sumarConForEach === 'function' && 
-                       sumarConForEach([1,2,3,4,5]) === 15;
+                return typeof sumarNumeros === 'function' && 
+                       sumarNumeros([1,2,3,4,5]) === 15;
             } catch(e) {
                 return false;
             }
@@ -298,7 +298,7 @@ function runExerciseTest(exercise, inputElements) {
         case 5: return generarFrases(...params);
         case 6: return crearArrayPares();
         case 7: return filtrarMayores(...params);
-        case 8: return sumarConForEach(...params);
+        case 8: return sumarNumeros(...params);
         case 9: return buscarPalabras(...params);
         case 10: 
             const operaciones = {
