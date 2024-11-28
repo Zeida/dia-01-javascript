@@ -151,6 +151,59 @@ class AIAssistant {
             </div>
         `;
 
+        // Estilos para los mensajes
+        const style = document.createElement('style');
+        style.textContent = `
+            .chat-message {
+                margin-bottom: 1rem;
+                max-width: 85%;
+            }
+            .chat-message.user {
+                margin-left: auto;
+            }
+            .message-content {
+                padding: 0.75rem 1rem;
+                border-radius: 1rem;
+                line-height: 1.5;
+            }
+            .chat-message.assistant .message-content {
+                background: white;
+                border: 1px solid #e5e7eb;
+                border-bottom-left-radius: 0.25rem;
+            }
+            .chat-message.user .message-content {
+                background: #4f46e5;
+                color: white;
+                border-bottom-right-radius: 0.25rem;
+            }
+            .message-content pre {
+                background: #1a1a1a;
+                padding: 1rem;
+                border-radius: 0.5rem;
+                overflow-x: auto;
+                margin: 0.5rem 0;
+            }
+            .message-content code {
+                background: #f3f4f6;
+                padding: 0.2rem 0.4rem;
+                border-radius: 0.25rem;
+                font-family: monospace;
+            }
+            .message-content p {
+                margin: 0.5rem 0;
+            }
+        `;
+
+        document.head.appendChild(style);
+        document.body.appendChild(helpButton);
+        document.body.appendChild(chatModal);
+
+        // Event Listeners
+        helpButton.onclick = () => chatModal.classList.toggle('hidden');
+        document.getElementById('close-chat').onclick = () => chatModal.classList.add('hidden');
+        document.getElementById('chat-form').onsubmit = (e) => this.handleQuestion(e);
+    
+
     }
 
     async handleQuestion(e) {
