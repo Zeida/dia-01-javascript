@@ -402,6 +402,12 @@ function formatTestResult(result) {
     if (result === null) {
         return 'null';
     }
+    if (typeof result === 'object') {
+        return JSON.stringify(result);
+    }
+    if (Array.isArray(result)) {
+        return result.map(formatTestResult).join(', ');
+    }
     return result.toString();
 }
 
