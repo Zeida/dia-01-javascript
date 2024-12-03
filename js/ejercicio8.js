@@ -16,6 +16,10 @@
 //   {titulo: 'Estudiar JS', completada: true},
 //   {titulo: 'Hacer ejercicio', completada: false}
 // ];
-// obtenerTareasCompletadas(tareas) // debe retornar ['Tarea: Estudiar JS']
-
 // Escribe tu código aquí:
+
+function obtenerTareasCompletadas (tareas){
+    const completadas = tareas.filter(tarea => tarea.completada === true);
+    const completadasFormateadas = completadas.map(completa=> 'Tarea: ' + completa.titulo);
+    return completadasFormateadas; 
+}

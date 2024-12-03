@@ -18,3 +18,8 @@
 // todosAdmin(usuarios) // debe retornar true
 
 // Escribe tu código aquí:
+
+function todosAdmin (usuarios){
+    const sonAdmin = usuarios.every(usuario => usuario.rol === 'admin');
+    return sonAdmin;
+}

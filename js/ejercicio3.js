@@ -20,3 +20,8 @@
 // Debe retornar: {nombre: 'Ana', email: 'ana@mail.com'}
 
 // Escribe tu código aquí:
+
+function buscarPorEmail(usuarios, email){
+    const emailEncontrado = usuarios.find(usuario => usuario.email === email);
+    return emailEncontrado;
+}

@@ -14,3 +14,9 @@
 // Debe retornar: ['ANA', 'JUAN', 'PEDRO']
 
 // Escribe tu código aquí:
+
+function transformarMayusculas(nombres){
+
+    const toMayus = nombres.map(nombre => nombre.toUpperCase());
+    return toMayus;
+}

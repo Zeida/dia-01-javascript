@@ -26,3 +26,36 @@
 // gestionarBiblioteca(libros, 'totalPrestados') // retorna 13
 
 // Escribe tu código aquí:
+
+function gestionarBiblioteca(libros, operacion, filtro){
+    switch (operacion){
+        case 'buscar':
+            return buscar(libros, filtro);
+        case 'disponibles':
+            return disponibles(libros);
+        case 'verificarAutores':
+            return verificarAutores(libros);   
+        case 'totalPrestados':
+            return totalPrestados(libros);
+        default:
+            return "No se ha especificado correctamente la función";
+    }
+}
+
+function buscar (libros, filtro){
+    return libros.filter(libro => libro.titulo.includes(filtro));
+}
+
+function disponibles (libros){
+    return  libros.filter(libro => libro.disponible===true); 
+}
+
+function verificarAutores(libros){
+    return libros.every(libro => libro.autor !== "");
+}
+
+function totalPrestados(libros){
+    let total=0;
+    libros.forEach(libro => total+=libro.prestados);
+    return total;
+}

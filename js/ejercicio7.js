@@ -16,3 +16,14 @@
 // Debe retornar: ['juan@gmail.com', 'ana@mail.com']
 
 // Escribe tu código aquí:
+
+function formatearEmails (emails){
+    const transformados = emails.map(email => {
+        if(!email.includes("@")){
+            return email.concat("@gmail.com").toLowerCase();
+        }else{
+            return email.toLowerCase();  
+        }
+    });
+    return transformados;
+}

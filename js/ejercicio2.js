@@ -21,3 +21,8 @@
 // Debe retornar: [{nombre: 'Camisa', precio: 20}, {nombre: 'Pantalón', precio: 50}]
 
 // Escribe tu código aquí:
+
+function filtrarPorPrecio(productos, precioMaximo){
+    const filtrados = productos.filter(producto => producto.precio<precioMaximo);
+    return filtrados;
+}

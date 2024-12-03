@@ -18,3 +18,11 @@
 // calcularTotal(carrito) // debe retornar 90
 
 // Escribe tu código aquí:
+
+function calcularTotal(productos){
+    let total = 0;
+    productos.forEach(producto => {
+        total+=producto.precio * producto.cantidad
+    });
+    return total;
+}

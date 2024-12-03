@@ -18,3 +18,8 @@
 // hayStock(productos) // debe retornar true
 
 // Escribe tu código aquí:
+
+function hayStock (productos){
+    const stock = productos.some(producto => producto.stock>0);
+    return stock;
+}
