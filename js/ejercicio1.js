@@ -1,19 +1,16 @@
-// Ejercicio 1: Sumar números pares
+// Ejercicio 1: Nombres en mayúsculas con map
 // 
 // Descripción:
-// Escribe una función llamada sumarPares() que sume todos los números pares 
-// desde 2 hasta 100 (inclusive).
+// Dado un array de nombres, usa el método map para crear un nuevo array 
+// donde cada nombre esté en mayúsculas.
 //
 // Instrucciones:
-// 1. Crea una función llamada sumarPares
-// 2. Usa un bucle for que vaya desde 2 hasta 100
-// 3. Dentro del bucle, verifica si cada número es par usando numero % 2 === 0
-// 4. Si el número es par, súmalo a un acumulador
-// 5. Al final, retorna la suma total
+// 1. Crea una función llamada transformarMayusculas que reciba un array de nombres
+// 2. Usa el método map y toUpperCase() para convertir cada nombre
+// 3. Retorna el nuevo array con los nombres en mayúsculas
 //
-// Ejemplo del resultado esperado:
-// sumarPares() // debe retornar 2550 (que es la suma de 2+4+6+...+98+100)
-//
-// Pista: Necesitarás una variable para ir acumulando la suma
+// Ejemplo:
+// transformarMayusculas(['ana', 'juan', 'pedro']) 
+// Debe retornar: ['ANA', 'JUAN', 'PEDRO']
 
 // Escribe tu código aquí:

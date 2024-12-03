@@ -1,21 +1,21 @@
-// Ejercicio 9: Buscar palabras
+// Ejercicio 9: Procesar pedidos
 // 
 // Descripción:
-// Crea una función que busque todas las palabras de un array que contienen
-// una letra específica.
+// Dado un array de pedidos, usa filter y map para obtener los pedidos entregados
+// y formatearlos para su visualización.
 //
 // Instrucciones:
-// 1. Crea una función llamada buscarPalabras que reciba:
-//    - Un array de palabras
-//    - Una letra a buscar
-// 2. Crea un array vacío para las palabras encontradas
-// 3. Recorre el array de palabras con un bucle for
-// 4. Si la palabra actual contiene la letra (usa includes), agrégala al nuevo array
-// 5. Retorna el array con las palabras encontradas
+// 1. Crea una función llamada formatearPedidosEntregados que reciba un array de pedidos
+//    (cada pedido tiene id, monto y entregado)
+// 2. Usa filter para quedarte solo con los pedidos entregados
+// 3. Usa map para formatear cada pedido como "Pedido #ID: $monto"
+// 4. Retorna el array de pedidos formateados
 //
 // Ejemplo:
-// buscarPalabras(['casa', 'perro', 'gato'], 'a') // debe retornar ['casa', 'gato']
-//
-// Pista: palabra.includes(letra) te dice si la palabra contiene la letra
+// const pedidos = [
+//   {id: 1, monto: 100, entregado: true},
+//   {id: 2, monto: 50, entregado: false}
+// ];
+// formatearPedidosEntregados(pedidos) // debe retornar ['Pedido #1: $100']
 
 // Escribe tu código aquí:

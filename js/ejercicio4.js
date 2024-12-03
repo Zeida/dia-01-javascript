@@ -1,20 +1,20 @@
-// Ejercicio 4: Tabla de multiplicar
+// Ejercicio 4: Calcular total del carrito
 // 
 // Descripción:
-// Crea una función que genere un array con la tabla de multiplicar de un número
-// del 1 al 10.
+// Dado un array de productos del carrito, usa forEach para calcular
+// el precio total de la compra.
 //
 // Instrucciones:
-// 1. Crea una función llamada tablaMultiplicar que reciba un número como parámetro
-// 2. Crea un array vacío para almacenar los resultados
-// 3. Usa un bucle for del 1 al 10
-// 4. En cada iteración, multiplica el número base por el número del bucle
-// 5. Guarda cada resultado en el array
-// 6. Retorna el array con los 10 resultados
+// 1. Crea una función llamada calcularTotal que reciba un array de productos
+//    (cada producto tiene nombre, precio y cantidad)
+// 2. Usa forEach para sumar el precio total (precio * cantidad de cada producto)
+// 3. Retorna el total calculado
 //
 // Ejemplo:
-// tablaMultiplicar(5) // debe retornar [5,10,15,20,25,30,35,40,45,50]
-//
-// Pista: Cada elemento del array será el número base multiplicado por la posición actual del bucle
+// const carrito = [
+//   {nombre: 'Camisa', precio: 20, cantidad: 2},
+//   {nombre: 'Pantalón', precio: 50, cantidad: 1}
+// ];
+// calcularTotal(carrito) // debe retornar 90
 
 // Escribe tu código aquí:

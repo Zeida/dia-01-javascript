@@ -1,21 +1,18 @@
-// Ejercicio 7: Filtrar mayores
+// Ejercicio 7: Formatear emails
 // 
 // Descripción:
-// Crea una función que reciba un array de números y un límite, y devuelva
-// un nuevo array solo con los números mayores al límite.
+// Dado un array de emails, usa map para formatearlos todos en minúsculas
+// y verificar que contengan '@'.
 //
 // Instrucciones:
-// 1. Crea una función llamada filtrarMayores que reciba dos parámetros:
-//    - Un array de números
-//    - Un número límite
-// 2. Crea un array vacío para los números filtrados
-// 3. Recorre el array original con un bucle for
-// 4. Si el número actual es mayor al límite, agrégalo al nuevo array
-// 5. Retorna el array con los números filtrados
+// 1. Crea una función llamada formatearEmails que reciba un array de emails
+// 2. Usa map para transformar cada email:
+//    - Convertir a minúsculas
+//    - Agregar '@gmail.com' si no contiene '@'
+// 3. Retorna el nuevo array con los emails formateados
 //
 // Ejemplo:
-// filtrarMayores([1,5,10,15], 7) // debe retornar [10,15]
-//
-// Pista: Compara cada número con el límite usando el operador >
+// formatearEmails(['JUAN', 'ana@mail.com']) 
+// Debe retornar: ['juan@gmail.com', 'ana@mail.com']
 
 // Escribe tu código aquí:

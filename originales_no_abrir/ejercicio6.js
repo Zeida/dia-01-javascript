@@ -1,18 +1,20 @@
-// Ejercicio 6: Array de pares
+// Ejercicio 6: Verificar permisos de usuarios
 // 
 // Descripción:
-// Crea una función que genere un array con todos los números pares del 2 al 20.
+// Dado un array de usuarios, usa every para verificar si todos
+// tienen el rol de 'admin'.
 //
 // Instrucciones:
-// 1. Crea una función llamada crearArrayPares sin parámetros
-// 2. Crea un array vacío para almacenar los números pares
-// 3. Usa un bucle for que vaya del 2 al 20
-// 4. Si el número es par (numero % 2 === 0), agrégalo al array
-// 5. Retorna el array completo
+// 1. Crea una función llamada todosAdmin que reciba un array de usuarios
+//    (cada usuario tiene nombre y rol)
+// 2. Usa every para verificar si todos los usuarios son admin
+// 3. Retorna true si todos son admin, false si alguno no lo es
 //
 // Ejemplo:
-// crearArrayPares() // debe retornar [2,4,6,8,10,12,14,16,18,20]
-//
-// Pista: Puedes usar i += 2 en el bucle for para ir de 2 en 2
+// const usuarios = [
+//   {nombre: 'Ana', rol: 'admin'},
+//   {nombre: 'Juan', rol: 'admin'}
+// ];
+// todosAdmin(usuarios) // debe retornar true
 
 // Escribe tu código aquí:

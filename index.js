@@ -1,12 +1,13 @@
 const exercises = [
     { 
         id: 1, 
-        title: "Sumar números pares", 
-        hint: "Recuerda que puedes usar numero % 2 === 0 para verificar si un número es par", 
+        title: "Nombres en mayúsculas con map", 
+        hint: "Usa el método map y toUpperCase() para transformar cada nombre", 
         check: () => {
             try {
-                return typeof sumarPares === 'function' && 
-                       sumarPares() === 2550; // suma de pares del 2 al 100
+                return typeof transformarMayusculas === 'function' && 
+                       JSON.stringify(transformarMayusculas(['ana', 'juan'])) === JSON.stringify(['ANA', 'JUAN']) &&
+                       JSON.stringify(transformarMayusculas(['pedro'])) === JSON.stringify(['PEDRO']);
             } catch(e) {
                 return false;
             }
@@ -14,13 +15,18 @@ const exercises = [
     },
     { 
         id: 2, 
-        title: "Contar vocales", 
-        hint: "Puedes usar un bucle for y comparar cada carácter con 'aeiou'", 
+        title: "Filtrar productos por precio", 
+        hint: "Usa filter para crear un nuevo array solo con los productos que cumplan la condición", 
         check: () => {
             try {
-                return typeof contarVocales === 'function' && 
-                       contarVocales('murcielago') === 5 &&
-                       contarVocales('casa') === 2;
+                const productos = [
+                    {nombre: 'Camisa', precio: 20},
+                    {nombre: 'Pantalón', precio: 50},
+                    {nombre: 'Zapatos', precio: 80}
+                ];
+                return typeof filtrarPorPrecio === 'function' && 
+                       JSON.stringify(filtrarPorPrecio(productos, 60)) === 
+                       JSON.stringify([{nombre: 'Camisa', precio: 20}, {nombre: 'Pantalón', precio: 50}]);
             } catch(e) {
                 return false;
             }
@@ -28,12 +34,17 @@ const exercises = [
     },
     { 
         id: 3, 
-        title: "Números impares en rango", 
-        hint: "Usa un bucle for y verifica si cada número es impar con numero % 2 !== 0", 
+        title: "Encontrar usuario por email", 
+        hint: "Usa el método find para encontrar el primer usuario que coincida", 
         check: () => {
             try {
-                return typeof numerosImpares === 'function' && 
-                       JSON.stringify(numerosImpares(1, 5)) === JSON.stringify([1,3,5]);
+                const usuarios = [
+                    {nombre: 'Ana', email: 'ana@mail.com'},
+                    {nombre: 'Juan', email: 'juan@mail.com'}
+                ];
+                return typeof buscarPorEmail === 'function' && 
+                       JSON.stringify(buscarPorEmail(usuarios, 'ana@mail.com')) === 
+                       JSON.stringify({nombre: 'Ana', email: 'ana@mail.com'});
             } catch(e) {
                 return false;
             }
@@ -41,12 +52,17 @@ const exercises = [
     },
     { 
         id: 4, 
-        title: "Tabla de multiplicar", 
-        hint: "Usa un bucle for del 1 al 10 y multiplica cada número por el número base", 
+        title: "Calcular total del carrito", 
+        hint: "Usa forEach para recorrer los productos y sumar precio * cantidad", 
         check: () => {
             try {
-                return typeof tablaMultiplicar === 'function' && 
-                       JSON.stringify(tablaMultiplicar(5)) === JSON.stringify([5,10,15,20,25,30,35,40,45,50]);
+                const carrito = [
+                    {nombre: 'Camisa', precio: 20, cantidad: 2},
+                    {nombre: 'Pantalón', precio: 50, cantidad: 1}
+                ];
+                return typeof calcularTotal === 'function' && 
+                       calcularTotal(carrito) === 90 &&
+                       calcularTotal([{nombre: 'Zapatos', precio: 60, cantidad: 2}]) === 120;
             } catch(e) {
                 return false;
             }
@@ -54,17 +70,21 @@ const exercises = [
     },
     { 
         id: 5, 
-        title: "Frases con forEach", 
-        hint: "Crea un array vacío y usa push dentro del forEach para agregar las nuevas frases", 
+        title: "Verificar stock disponible", 
+        hint: "Usa some para comprobar si algún producto tiene stock mayor a 0", 
         check: () => {
             try {
-                const frutas = ['manzana', 'pera', 'uva'];
-                return typeof generarFrases === 'function' && 
-                       JSON.stringify(generarFrases(frutas)) === JSON.stringify([
-                           'Fruta encontrada: manzana',
-                           'Fruta encontrada: pera',
-                           'Fruta encontrada: uva'
-                       ]);
+                const productos1 = [
+                    {nombre: 'Camisa', stock: 0},
+                    {nombre: 'Pantalón', stock: 5}
+                ];
+                const productos2 = [
+                    {nombre: 'Camisa', stock: 0},
+                    {nombre: 'Pantalón', stock: 0}
+                ];
+                return typeof hayStock === 'function' && 
+                       hayStock(productos1) === true &&
+                       hayStock(productos2) === false;
             } catch(e) {
                 return false;
             }
@@ -72,12 +92,21 @@ const exercises = [
     },
     { 
         id: 6, 
-        title: "Array de pares", 
-        hint: "Usa push() dentro del bucle for para agregar cada número par al array", 
+        title: "Verificar permisos de usuarios", 
+        hint: "Usa every para verificar si todos los usuarios son admin", 
         check: () => {
             try {
-                return typeof crearArrayPares === 'function' && 
-                       JSON.stringify(crearArrayPares()) === JSON.stringify([2,4,6,8,10,12,14,16,18,20]);
+                const usuarios1 = [
+                    {nombre: 'Ana', rol: 'admin'},
+                    {nombre: 'Juan', rol: 'admin'}
+                ];
+                const usuarios2 = [
+                    {nombre: 'Ana', rol: 'admin'},
+                    {nombre: 'Juan', rol: 'user'}
+                ];
+                return typeof todosAdmin === 'function' && 
+                       todosAdmin(usuarios1) === true &&
+                       todosAdmin(usuarios2) === false;
             } catch(e) {
                 return false;
             }
@@ -85,12 +114,15 @@ const exercises = [
     },
     { 
         id: 7, 
-        title: "Filtrar mayores", 
-        hint: "Crea un nuevo array y usa push para agregar solo los números que cumplan la condición", 
+        title: "Formatear emails", 
+        hint: "Usa map para transformar cada email según las reglas especificadas", 
         check: () => {
             try {
-                return typeof filtrarMayores === 'function' && 
-                       JSON.stringify(filtrarMayores([1,5,10,15], 7)) === JSON.stringify([10,15]);
+                return typeof formatearEmails === 'function' && 
+                       JSON.stringify(formatearEmails(['JUAN', 'ana@mail.com'])) === 
+                       JSON.stringify(['juan@gmail.com', 'ana@mail.com']) &&
+                       JSON.stringify(formatearEmails(['MARIA', 'PEDRO'])) === 
+                       JSON.stringify(['maria@gmail.com', 'pedro@gmail.com']);
             } catch(e) {
                 return false;
             }
@@ -98,12 +130,18 @@ const exercises = [
     },
     { 
         id: 8, 
-        title: "Suma con forEach", 
-        hint: "Declara una variable suma = 0 antes del forEach y súmale cada número dentro del callback", 
+        title: "Filtrar tareas completadas", 
+        hint: "Usa filter para obtener las completadas y map para formatearlas", 
         check: () => {
             try {
-                return typeof sumarNumeros === 'function' && 
-                       sumarNumeros([1,2,3,4,5]) === 15;
+                const tareas = [
+                    {titulo: 'Estudiar JS', completada: true},
+                    {titulo: 'Hacer ejercicio', completada: false},
+                    {titulo: 'Leer', completada: true}
+                ];
+                return typeof obtenerTareasCompletadas === 'function' && 
+                       JSON.stringify(obtenerTareasCompletadas(tareas)) === 
+                       JSON.stringify(['Tarea: Estudiar JS', 'Tarea: Leer']);
             } catch(e) {
                 return false;
             }
@@ -111,12 +149,18 @@ const exercises = [
     },
     { 
         id: 9, 
-        title: "Buscar palabras", 
-        hint: "Usa un bucle for y el método includes() para verificar si cada palabra contiene la letra", 
+        title: "Procesar pedidos", 
+        hint: "Usa filter para los entregados y map para el formato", 
         check: () => {
             try {
-                return typeof buscarPalabras === 'function' && 
-                       JSON.stringify(buscarPalabras(['casa', 'perro', 'gato'], 'a')) === JSON.stringify(['casa', 'gato']);
+                const pedidos = [
+                    {id: 1, monto: 100, entregado: true},
+                    {id: 2, monto: 50, entregado: false},
+                    {id: 3, monto: 75, entregado: true}
+                ];
+                return typeof formatearPedidosEntregados === 'function' && 
+                       JSON.stringify(formatearPedidosEntregados(pedidos)) === 
+                       JSON.stringify(['Pedido #1: $100', 'Pedido #3: $75']);
             } catch(e) {
                 return false;
             }
@@ -124,13 +168,23 @@ const exercises = [
     },
     { 
         id: 10, 
-        title: "Callback matemático", 
-        hint: "El callback es una función que recibe dos números y retorna el resultado de la operación", 
+        title: "Gestión de biblioteca", 
+        hint: "Usa el método adecuado para cada operación (filter, find, every)", 
         check: () => {
             try {
-                const suma = (a, b) => a + b;
-                return typeof ejecutarOperacion === 'function' && 
-                       ejecutarOperacion(5, 3, suma) === 8;
+                const libros = [
+                    {titulo: 'JS', autor: 'Juan', disponible: true, prestados: 5},
+                    {titulo: 'HTML', autor: 'Ana', disponible: false, prestados: 8},
+                    {titulo: 'CSS', autor: 'Pedro', disponible: true, prestados: 2}
+                ];
+                return typeof gestionarBiblioteca === 'function' && 
+                       JSON.stringify(gestionarBiblioteca(libros, 'disponibles')) === 
+                       JSON.stringify([{titulo: 'JS', autor: 'Juan', disponible: true, prestados: 5},
+                                    {titulo: 'CSS', autor: 'Pedro', disponible: true, prestados: 2}]) &&
+                       JSON.stringify(gestionarBiblioteca(libros, 'buscar', 'HTML')) === 
+                       JSON.stringify({titulo: 'HTML', autor: 'Ana', disponible: false, prestados: 8}) &&
+                       gestionarBiblioteca(libros, 'verificarAutores') === true &&
+                       gestionarBiblioteca(libros, 'totalPrestados') === 15;
             } catch(e) {
                 return false;
             }
@@ -240,28 +294,61 @@ function validateExercise(exercise, checkmark) {
 
 function createInputsForExercise(exercise) {
     const inputConfigs = {
-        1: [], // No necesita inputs
-        2: [{ name: 'texto', type: 'text', placeholder: 'Palabra a analizar' }],
+        1: [{ name: 'nombres', type: 'text', placeholder: 'Nombres separados por coma' }],
+        2: [
+            { name: 'productos', type: 'text', placeholder: 'Array de productos en formato JSON' },
+            { name: 'precioMaximo', type: 'number', placeholder: 'Precio máximo' }
+        ],
         3: [
-            { name: 'inicio', type: 'number', placeholder: 'Número inicial' },
-            { name: 'fin', type: 'number', placeholder: 'Número final' }
+            { name: 'usuarios', type: 'text', placeholder: 'Array de usuarios en formato JSON' },
+            { name: 'email', type: 'text', placeholder: 'Email a buscar' }
         ],
-        4: [{ name: 'numero', type: 'number', placeholder: 'Número para la tabla' }],
-        5: [{ name: 'frutas', type: 'text', placeholder: 'Frutas separadas por coma' }],
-        6: [], // No necesita inputs
-        7: [
-            { name: 'numeros', type: 'text', placeholder: 'Números separados por coma' },
-            { name: 'limite', type: 'number', placeholder: 'Número límite' }
-        ],
-        8: [{ name: 'numeros', type: 'text', placeholder: 'Números separados por coma' }],
-        9: [
-            { name: 'palabras', type: 'text', placeholder: 'Palabras separadas por coma' },
-            { name: 'letra', type: 'text', placeholder: 'Letra a buscar' }
-        ],
+        4: [{ 
+            name: 'carrito', 
+            type: 'text', 
+            placeholder: 'Array de productos en formato JSON [{nombre, precio, cantidad}]' 
+        }],
+        5: [{ 
+            name: 'productos', 
+            type: 'text', 
+            placeholder: 'Array de productos en formato JSON [{nombre, stock}]' 
+        }],
+        6: [{ 
+            name: 'usuarios', 
+            type: 'text', 
+            placeholder: 'Array de usuarios en formato JSON [{nombre, rol}]' 
+        }],
+        7: [{ 
+            name: 'emails', 
+            type: 'text', 
+            placeholder: 'Emails separados por coma' 
+        }],
+        8: [{ 
+            name: 'tareas', 
+            type: 'text', 
+            placeholder: 'Array de tareas en formato JSON [{titulo, completada}]' 
+        }],
+        9: [{ 
+            name: 'pedidos', 
+            type: 'text', 
+            placeholder: 'Array de pedidos en formato JSON [{id, monto, entregado}]' 
+        }],
         10: [
-            { name: 'num1', type: 'number', placeholder: 'Primer número' },
-            { name: 'num2', type: 'number', placeholder: 'Segundo número' },
-            { name: 'operacion', type: 'text', placeholder: 'Operación (suma, resta, mult, div)' }
+            { 
+                name: 'libros', 
+                type: 'text', 
+                placeholder: 'Array de libros en formato JSON' 
+            },
+            {
+                name: 'operacion',
+                type: 'text',
+                placeholder: 'disponibles, buscar, verificarAutores, totalPrestados'
+            },
+            {
+                name: 'valor',
+                type: 'text',
+                placeholder: 'Valor adicional (opcional)'
+            }
         ]
     };
 
@@ -284,31 +371,24 @@ function runExerciseTest(exercise, inputElements) {
         .map(div => div.firstChild)
         .map(input => {
             if (input.type === 'number') return Number(input.value);
-            // Convertir strings de arrays y objetos
-            if (input.value.includes(',')) return input.value.split(',').map(Number);
-            if (input.value.startsWith('{')) return JSON.parse(input.value);
+            if (input.value.includes(',') && !input.value.includes('{')) 
+                return input.value.split(',').map(s => s.trim());
+            if (input.value.startsWith('[')) return JSON.parse(input.value);
             return input.value;
         });
     
     switch (exercise.id) {
-        case 1: return sumarPares();
-        case 2: return contarVocales(...params);
-        case 3: return numerosImpares(...params);
-        case 4: return tablaMultiplicar(...params);
-        case 5: return generarFrases(...params);
-        case 6: return crearArrayPares();
-        case 7: return filtrarMayores(...params);
-        case 8: return sumarNumeros(...params);
-        case 9: return buscarPalabras(...params);
-        case 10: 
-            const operaciones = {
-                'suma': (a,b) => a + b,
-                'resta': (a,b) => a - b,
-                'mult': (a,b) => a * b,
-                'div': (a,b) => a / b
-            };
-            return ejecutarOperacion(params[0], params[1], operaciones[params[2]]);
-        default: throw new Error('Ejercicio no encontrado');
+        case 1: return transformarMayusculas(params[0]);
+        case 2: return filtrarPorPrecio(params[0], params[1]);
+        case 3: return buscarPorEmail(params[0], params[1]);
+        case 4: return calcularTotal(params[0]);
+        case 5: return hayStock(params[0]);
+        case 6: return todosAdmin(params[0]);
+        case 7: return formatearEmails(params[0]);
+        case 8: return obtenerTareasCompletadas(params[0]);
+        case 9: return formatearPedidosEntregados(params[0]);
+        case 10: return gestionarBiblioteca(params[0], params[1], params[2]);
+        // ... continuar con el resto de casos
     }
 }
 

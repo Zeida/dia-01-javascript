@@ -1,19 +1,23 @@
-// Ejercicio 2: Contar vocales
+// Ejercicio 2: Filtrar productos por precio
 // 
 // Descripción:
-// Escribe una función que cuente cuántas vocales (a, e, i, o, u) hay en una palabra.
+// Dado un array de productos y un precio máximo, usa filter para obtener
+// los productos que cuestan menos que el precio dado.
 //
 // Instrucciones:
-// 1. Crea una función llamada contarVocales que reciba un string como parámetro
-// 2. Usa un bucle for para recorrer cada letra del string
-// 3. Para cada letra, verifica si es una vocal
-// 4. Cuenta el total de vocales encontradas
-// 5. Retorna el número total de vocales
+// 1. Crea una función llamada filtrarPorPrecio que reciba:
+//    - Un array de productos (objetos con nombre y precio)
+//    - Un precio máximo (número)
+// 2. Usa filter para obtener solo los productos con precio menor al máximo
+// 3. Retorna el nuevo array con los productos filtrados
 //
-// Ejemplos:
-// contarVocales('murcielago') // debe retornar 5
-// contarVocales('casa') // debe retornar 2
-//
-// Pista: Puedes usar string.toLowerCase() para convertir a minúsculas y comparar más fácilmente
+// Ejemplo:
+// const productos = [
+//   {nombre: 'Camisa', precio: 20},
+//   {nombre: 'Pantalón', precio: 50},
+//   {nombre: 'Zapatos', precio: 80}
+// ];
+// filtrarPorPrecio(productos, 60) 
+// Debe retornar: [{nombre: 'Camisa', precio: 20}, {nombre: 'Pantalón', precio: 50}]
 
 // Escribe tu código aquí:

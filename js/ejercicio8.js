@@ -1,16 +1,21 @@
-// Ejercicio 8: Sumar números
+// Ejercicio 8: Filtrar tareas completadas
 // 
 // Descripción:
-// Crea una función que sume todos los números de un array usando un bucle for normal.
+// Dado un array de tareas, usa filter para obtener las tareas completadas
+// y map para formatear su visualización.
 //
 // Instrucciones:
-// 1. Crea una función llamada sumarNumeros que reciba un array de números
-// 2. Crea una variable suma inicializada en 0
-// 3. Usa un bucle for para recorrer el array
-// 4. En cada iteración, suma el número actual a la variable suma
-// 5. Retorna el total
+// 1. Crea una función llamada obtenerTareasCompletadas que reciba un array de tareas
+//    (cada tarea tiene título y completada)
+// 2. Usa filter para obtener solo las tareas completadas
+// 3. Usa map para formatear cada tarea como "Tarea: {título}"
+// 4. Retorna el array final
 //
 // Ejemplo:
-// sumarNumeros([1,2,3,4,5]) // debe retornar 15
-//
-// Pista: Usa array[i] para acceder a cada número dentro del bucle for
+// const tareas = [
+//   {titulo: 'Estudiar JS', completada: true},
+//   {titulo: 'Hacer ejercicio', completada: false}
+// ];
+// obtenerTareasCompletadas(tareas) // debe retornar ['Tarea: Estudiar JS']
+
+// Escribe tu código aquí:

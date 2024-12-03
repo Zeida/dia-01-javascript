@@ -1,19 +1,22 @@
-// Ejercicio 3: Números impares en rango
+// Ejercicio 3: Encontrar usuario por email
 // 
 // Descripción:
-// Crea una función que devuelva un array con todos los números impares 
-// que hay entre dos números dados (inclusive).
+// Dado un array de usuarios y un email, usa find para encontrar
+// el primer usuario que coincida con ese email.
 //
 // Instrucciones:
-// 1. Crea una función llamada numerosImpares que reciba dos parámetros: inicio y fin
-// 2. Crea un array vacío para almacenar los números impares
-// 3. Usa un bucle for desde inicio hasta fin (inclusive)
-// 4. Si un número es impar (numero % 2 !== 0), agrégalo al array
-// 5. Retorna el array con todos los números impares encontrados
+// 1. Crea una función llamada buscarPorEmail que reciba:
+//    - Un array de usuarios (objetos con nombre y email)
+//    - Un email a buscar
+// 2. Usa find para encontrar el usuario con el email especificado
+// 3. Retorna el usuario encontrado o undefined si no existe
 //
 // Ejemplo:
-// numerosImpares(1, 5) // debe retornar [1,3,5]
-//
-// Pista: Usa array.push() para agregar elementos al array
+// const usuarios = [
+//   {nombre: 'Ana', email: 'ana@mail.com'},
+//   {nombre: 'Juan', email: 'juan@mail.com'}
+// ];
+// buscarPorEmail(usuarios, 'ana@mail.com')
+// Debe retornar: {nombre: 'Ana', email: 'ana@mail.com'}
 
 // Escribe tu código aquí:
