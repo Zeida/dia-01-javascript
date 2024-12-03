@@ -17,6 +17,5 @@
 
 function transformarMayusculas(nombres){
 
-    const toMayus = nombres.map(nombre => nombre.toUpperCase());
-    return toMayus;
+    return nombres.map(nombre => nombre.toUpperCase());
 }

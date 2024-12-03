@@ -20,6 +20,5 @@
 // Escribe tu código aquí:
 
 function todosAdmin (usuarios){
-    const sonAdmin = usuarios.every(usuario => usuario.rol === 'admin');
-    return sonAdmin;
+    return usuarios.every(usuario => usuario.rol === 'admin');
 }

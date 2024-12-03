@@ -23,6 +23,5 @@
 // Escribe tu código aquí:
 
 function filtrarPorPrecio(productos, precioMaximo){
-    const filtrados = productos.filter(producto => producto.precio<precioMaximo);
-    return filtrados;
+    return productos.filter(producto => producto.precio<precioMaximo);
 }

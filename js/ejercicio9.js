@@ -21,7 +21,5 @@
 // Escribe tu código aquí:
 
 function formatearPedidosEntregados(pedidos){
-    const entregados = pedidos.filter(pedido => pedido.entregado === true);
-    const entregadosFormateados = entregados.map(entregado => `Pedido #${entregado.id}: $${entregado.monto}`);
-    return entregadosFormateados;
+    return pedidos.filter(pedido => pedido.entregado).map(entregado => `Pedido #${entregado.id}: $${entregado.monto}`);
 }
